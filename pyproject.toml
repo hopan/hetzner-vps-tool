@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hetzner-vps-tool"
+version = "0.1.0"
+description = "Four Hetzner Cloud VPS and snapshot tools"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["hcloud>=2.25,<3", "mcp>=1,<2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+hetzner-vps = "hetzner_vps_tool.__main__:main"
+hetzner-vps-mcp = "hetzner_vps_tool.mcp_server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
